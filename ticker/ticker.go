@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+func init(){
+	fmt.Println("This is the ticker pkg")
+}
+
 func Tickeeerrr(){
 	ticker := time.NewTicker(5*time.Second)
 	
