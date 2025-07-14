@@ -6,4 +6,4 @@ learning one new thing in go everyday
   - [ ]  Init func on all levels
 
 - Day Two
-  - [ ]Basic of Ticker package
+  - [ ] Basic of Ticker package
