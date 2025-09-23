@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
 )
 
@@ -25,5 +26,17 @@ func main(){
 
 func PrintStruct(s any) {
 	val := reflect.ValueOf(s)
-	println("Type:", val.Type().Name())
+	if val.Kind() != reflect.Struct{
+		println("not a struct")
+		return
+	}
+
+	typ := val.Type()
+	for i := 0; i < val.NumField(); i++{
+		field := typ.Field(i)
+		fval := val.Field(i)
+
+		fmt.Println("field:",field,"val:",fval)
+
+	}
 }

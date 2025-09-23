@@ -15,3 +15,6 @@ learning one new thing in go everyday
 
 - Day 4
   - [ ] Created a simple ceaser ciphering and deciphering cli app
+
+- Day 4
+  - [ ] Reflect package
