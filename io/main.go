@@ -11,13 +11,14 @@ import "os"
 // }
 
 func main() {
-	input := RawInput()
+	input := RawInput("Enter input: ")
 	os.Stdout.WriteString(input)
 }
 
-func RawInput() string {
+func RawInput(prompt string) string {
+	os.Stdout.WriteString(prompt)
 	buf := make([]byte, 1024)
-	n,err := os.Stdin.Read(buf)
+	n, err := os.Stdin.Read(buf)
 	if err != nil {
 		return ""
 	}
