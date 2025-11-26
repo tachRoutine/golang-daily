@@ -25,6 +25,7 @@ func RawInput(prompt string) string {
 	os.Stdout.WriteString(prompt)
 	buf := make([]byte, 1024)
 	n, err := os.Stdin.Read(buf)
+	println("n",n)
 	if err != nil {
 		return ""
 	}
