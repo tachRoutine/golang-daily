@@ -1,12 +1,12 @@
 package main
 
-import "time"
+// import "time"
 
-func main() {
-	go func() {
-		println("Hello from goroutine")
-	}()
+// func main() {
+// 	go func() {
+// 		println("Hello from goroutine")
+// 	}()
 
-	println("Hello from main")
-	time.Sleep(time.Second * 1)
-}
+// 	println("Hello from main")
+// 	time.Sleep(time.Second * 1)
+// }
