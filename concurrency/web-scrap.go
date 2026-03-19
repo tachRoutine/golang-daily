@@ -12,10 +12,16 @@ type Page struct {
 	Body string
 }
 
-func Scrape(url string) Page {
-	resp, _ := http.Get(url)
-	body, _ := io.ReadAll(resp.Body)
-	return Page{URL: url, Body: string(body)}
+func Scrape(url string) (Page, error) {
+	resp, err := http.Get(url)
+	if err !=nil{
+		return Page{URL: url}, err
+	}
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return Page{URL: url}, err
+	}
+	return Page{URL: url, Body: string(body)}, nil
 }
 
 func main() {
@@ -28,7 +34,12 @@ func main() {
 		wg.Add(1)
 		go func(url string) {
 			defer wg.Done()
-			results <- Scrape(url)
+			page, err := Scrape(url)
+			if err != nil {
+				fmt.Printf("Error scraping %s: %v\n", url, err)
+				return
+			}
+			results <- page
 		}(url)
 	}
 
