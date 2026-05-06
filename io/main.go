@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 )
 
@@ -14,6 +15,12 @@ import (
 // }
 
 func main() {
+	var name string
+	var age int
+	fmt.Print("Enter name and age: ")
+	fmt.Scan(&name, &age)
+	fmt.Printf("Name: %s, Age: %d\n", name, age)
+	
 	input := RawInput("Enter input: ")
 	os.Stdout.WriteString(input)
 
@@ -25,7 +32,7 @@ func RawInput(prompt string) string {
 	os.Stdout.WriteString(prompt)
 	buf := make([]byte, 1024)
 	n, err := os.Stdin.Read(buf)
-	println("n",n)
+	println("n", n)
 	if err != nil {
 		return ""
 	}
