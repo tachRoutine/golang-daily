@@ -13,5 +13,9 @@ func main(){
 		print(x)
 		x++
 	}
-	
+
+	for {
+		print("Infinite Loop")
+	}
+
 }
